@@ -35,11 +35,31 @@ Faça os clones utilizando os comandos do github
 
 ### - Configurações Antes da Compilação
 Copie seu arquivo ```google-services.json``` para ```[GODOT-ROOT]/platform/android/java/```
-e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.example.game``` pelo package do seu projeto.
+e edite o arquivo ```modules/GodotFireBase/config.py```, substituindo ```com.example.game``` pelo package do seu projeto.
 
 ```java
     p_app_id = "com.example.game"
 ```
+
+ainda no mesmo arquivo, deixe as configurações como essa:
+```java
+_config = {
+    "Analytics"      : False,
+    "AdMob"          : False,
+    "Invites"        : False,
+    "RemoteConfig"   : False,
+    "Notification"   : False,
+    "Storage"        : False,
+    "Firestore"      : False,
+
+    "Authentication" : True,
+    "AuthGoogle"     : False,
+    "AuthFacebook"   : False,
+    "AuthTwitter"    : False
+}
+```
+
+
 
 ### - Preparar Ambiente Ubuntu (para compilação)
 - Instalar Android Studio ( https://goo.gl/xrJwYe )
