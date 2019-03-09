@@ -11,6 +11,7 @@ Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubu
 - Gradle 3.4.1
 - Ubuntu 18.04 LTS
 - git version 2.17.1
+- Veja todos os requisitos necessários na documentação da Godot ( https://goo.gl/xNn68f )
 
 ### - Criar conta no Firebase
 Acesse e crie uma conta: ```http://firebase.google.com```
@@ -40,6 +41,11 @@ e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.your.app
 
 ### - Preparar Ambiente Ubuntu (para compilação)
 - Instalar Android Studio ( https://goo.gl/xrJwYe )
+    - Utilize o SDK Manager para instalar os requisitos que constam na documentação da Godot:
+        - Android SDK version 23.0.3 [Note: Please install all tools and extras of the SDK Manager]
+        - Android build tools version 19.1
+        - Android NDK r13 or later
+
 - Instalar bilbiotecas 64bits:
 	- Ubuntu: ```sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386```
 
@@ -52,7 +58,7 @@ e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.your.app
 
 - Verificar se java está instalado (testei com a versão: 1.8.0_201)
 	- ```java -version```
-	    - Se não tiver instalado, veja como instalar: ( https://goo.gl/cjgBi2 )
+	    - Se não estiver instalado, veja como instalar: ( https://goo.gl/cjgBi2 )
 
 - Configurar variáveis do ambiente no arquivo: 
 	- Fazendo dessa forma como explico abaixo, se você fechar o terminal, não tem problema, não precisa rodar isso tudo de novo.
@@ -87,13 +93,14 @@ e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.your.app
 
 ### - compilar para RELEASE primeiro
 - Acesse o diretório principal da Godot (source) 
-    * o que vc fez clone, nesse diretório vc vai trabalhar a maior parte do tempo abaixo
-    ** A primeira vez vai demorar pra caramba! Pode ir fazer uns 5 cafés!!! kkkk
+    * Nesse diretório vc vai trabalhar a maior parte do tempo abaixo.\
+    * A primeira vez vai demorar bastante! Pode ir fazer uns 5 cafés!!! kkkk
 
 Execute:
 - ```scons platform=android target=release```
 
 - Depois de compilar, acesse: "```cd platform/android/java```", e execute:
+
 - ```nano build.gradle```
 - localize onde tem a chave "Android" e acrescente a informação "dexOptions" abaixo:
 ```java
@@ -110,15 +117,15 @@ android {
 
 
 ### - Compilar para debug:
-- retorne ao diretório principal (```cd ../../../```) da godot (source) e execute agora em modo debug:
+- Retorne ao diretório principal (```cd ../../../```) da godot (source) e execute agora em modo debug:
 - ```scons platform=android target=release_debug```
 *** Talvez essa demore mais que a primeira vez!
 
-- acesse: ```cd platform/android/java```
-- abra o arquivo build.gradle novamente
+- Acesse: ```cd platform/android/java```
+- Abra o arquivo build.gradle novamente
 - ```nano build.gradle```
 
-- localize onde tem a chave "Android" e acrescente a informação dexOptions abaixo:
+- Localize onde tem a chave "Android" e acrescente a informação dexOptions abaixo:
 ```java
 android {
     dexOptions {
@@ -134,9 +141,9 @@ android {
 
 ### - Na Godot
 Se tudo ocorreu bem nas compilações, você pode abrir seu jogo, e no exports do Android, em custom package Debug e Release
-coloca os arquivos que estão na pasta BIN da godot (source)
+coloca os arquivos que estão na pasta BIN da godot (source)\
 
-e no seu arquivo ```project.godot``` acrescente essa parte no final dele:
+No seu arquivo ```project.godot``` acrescente essa parte no final dele:
 
 ```text
 [android]
