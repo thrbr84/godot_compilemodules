@@ -14,7 +14,7 @@ Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubu
 - Veja todos os requisitos necessários na documentação da Godot ( https://goo.gl/xNn68f )
 
 ### - Criar conta no Firebase
-Acesse e crie uma conta: ```http://firebase.google.com```
+Acesse e crie uma conta: ( http://firebase.google.com )
 
 - Clicar na opção ```Android``` e ```registrar o APP```
 - Fazer o download do "```google-services.json```"
