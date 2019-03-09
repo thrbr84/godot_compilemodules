@@ -8,6 +8,7 @@ Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubu
 - Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
 - scons script: v3.0.1.74
 - scons engine: v3.0.1.74
+- Python 2.7.15rc1
 - Gradle 3.4.1
 - Ubuntu 18.04 LTS
 - git version 2.17.1
