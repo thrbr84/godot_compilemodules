@@ -1,6 +1,16 @@
 # Godot - Compilar Módulos para Android
 Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubuntu 18.04 LTS
 
+## Nesse tutorial foi utilizado
+- Godot 3.1beta11
+- java version "1.8.0_202"
+- Java(TM) SE Runtime Environment (build 1.8.0_202-b08)
+- Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
+- scons script: v3.0.1.74
+- scons engine: v3.0.1.74
+- Gradle 3.4.1
+- Ubuntu 18.04 LTS
+- git version 2.17.1
 
 ### - Criar conta no Firebase
 Acesse e crie uma conta: ```http://firebase.google.com```
@@ -60,7 +70,7 @@ e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.your.app
         export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_202
     ```
 
-	- ~Onde tem JAVA_HOME acima~, precisa só conferir se o caminho está certo para seu java, e colocar o certo no seu pc
+	- [Onde tem JAVA_HOME acima], precisa só conferir se o caminho está certo para seu java, e colocar o certo no seu pc
 	- Após editar o arquivo, execute o comando abaixo para recarregar o arquivo e não precisar reiniciar o pc
 	- ```source ~/.bashrc```
 
