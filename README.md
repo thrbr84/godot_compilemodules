@@ -1,4 +1,5 @@
-# Godot 3.1 - Compilar Módulos para Android (Ubuntu 18.04 LTS)
+# Godot 3.1
+# Compilar Módulos para Android (Ubuntu 18.04 LTS)
 Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubuntu 18.04 LTS
 
 ## Nesse tutorial foi utilizado
