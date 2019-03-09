@@ -177,9 +177,6 @@ Se o app abrir e fechar falando que travou, então seu módulo ficou com problem
 
 Agora o teste de minerva!!!
 - Crie um script em seu node principal com o código abaixo:
-** Não esqueça de criar o arquivo ```godot-firebase-config.json``` no diretório do seu jogo com suas configurações que vc quer.
-** Não esqueça de habilitar na exportação para Android, pra godot colocar os arquivos ```*.json``` junto com seu pacote!
-
 
 ```python
 var firebase
@@ -194,6 +191,49 @@ func _receive_message(tag, from, key, data):
 		print("From: ", from, " Key: ", key, " Data: ", data)"
 
 ```
+
+
+
+** Não esqueça de criar o arquivo ```godot-firebase-config.json``` no diretório do seu jogo com suas configurações que vc quer conforme exemplo abaixo.
+```json
+{
+	"AdMob" : false,
+	"Authentication" : true,
+	"Invites" : false,
+	"RemoteConfig" : false,
+	"Notification" : false,
+	"Storage" : false,
+	"FireStore" : true,
+
+	"AuthConf" :
+	{
+		"Google" : false,
+		"Twitter" : false,
+        "Facebook" : false,
+        "EmailPassword" : true,
+		"FacebookAppId" : ""
+	},
+
+	"Ads" :
+	{
+		"AppId": "YOUR_APP_ID_HERE",
+		"BannerAd" : false,
+		"BannerGravity" : "BOTTOM",
+		"BannerAdId" : "",
+
+		"InterstitialAd" : false,
+		"InterstitialAdId" : "",
+
+		"RewardedVideoAd" : false,
+		"RewardedVideoAdId" : ""
+	}
+}
+```
+
+
+** Não esqueça de habilitar na exportação para Android, pra godot colocar os arquivos ```*.json``` junto com seu pacote!
+
+
 
 - com o comando abaixo, deixe rodando em um terminal enquanto vc abre o jogo no celular,
 nele você vai conseguir ver caso dê erro na hora de carregar o Firebase, ou autenticar etc.
