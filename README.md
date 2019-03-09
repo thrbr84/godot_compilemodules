@@ -33,10 +33,10 @@ Faça os clones utilizando os comandos do github
 
 ### - Configurações Antes da Compilação
 Copie seu arquivo ```google-services.json``` para ```[GODOT-ROOT]/platform/android/java/```
-e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.your.appid``` pelo package do seu projeto.
+e edite o arquivo ```modules/FireBase/config.py```, substituindo ```com.example.game``` pelo package do seu projeto.
 
 ```java
-    env.android_add_default_config("applicationId 'com.your.appid'")
+    p_app_id = "com.example.game"
 ```
 
 ### - Preparar Ambiente Ubuntu (para compilação)
