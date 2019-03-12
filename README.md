@@ -67,7 +67,7 @@ _config = {
 	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/android/AndroidManifestChunk.xml```
 	e retire o seguinte trecho de código:
 
-	```xml
+	```
 	<!-- Auth -->
 
 	<!-- Set facebook Application ID -->
