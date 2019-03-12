@@ -29,7 +29,7 @@ Acesse e crie uma conta: ( http://firebase.google.com )
 ### - Dependências
 Faça os clones utilizando os comandos do github
 
-- Baixar (Godot 3.1beta): git clone https://github.com/godotengine/godot
+- Baixar (Godot last): git clone https://github.com/godotengine/godot
 - Baixar: git clone https://github.com/FrogSquare/GodotSQL
 - Baixar: git clone https://github.com/FrogSquare/GodotFireBase
 
