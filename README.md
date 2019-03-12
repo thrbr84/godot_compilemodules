@@ -60,7 +60,7 @@ _config = {
 }
 ```
 
-**[IMPORTANT]**
+**[IMPORTANTE]**
 - Se não for usar autenticação com Facebook, Admob etc, siga esses passos abaixo:
 
 1º - Não vai utilizar autenticação com Facebook:\
