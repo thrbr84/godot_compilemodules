@@ -287,7 +287,7 @@ adb -d logcat godot:V FireBase:V DEBUG:V AndroidRuntime:V ValidateServiceOp:V *:
 ------
 ### ERROS COMUNS
 
-#### java.lang.RuntimeException: java.lang.RuntimeException: com.android.builder.dexing.DexArchiveMergerException: Unable to merge dex"
+#### > Task :transformDexArchiveWithExternalLibsDexMergerForDebug FAILED
 Se ocorrer o erro acima, edite o arquivo ```[GODOT]/platform/android/java/build.gradle``` e coloque o seguinte código abaixo e execute novamente o ```./gradlew build```
 
 ```java
@@ -298,6 +298,6 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:multidex:1.0.1'
+  implementation 'com.android.support:multidex:1.0.1'
 }
 ```
