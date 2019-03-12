@@ -65,7 +65,7 @@ _config = {
 
 1º - Não vai utilizar autenticação com Facebook:\
 	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/android/AndroidManifestChunk.xml```
-	e retire o seguinte trexo de código:
+	e retire o seguinte trecho de código:
 
 	```xml
 
@@ -84,7 +84,7 @@ _config = {
 	```
 
 	- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
-	e retire o seguinte trexo de código:
+	e retire o seguinte trecho de código:
 
 	```xml
 		<string name="facebook_app_id">1234567890987654</string>
@@ -92,7 +92,7 @@ _config = {
 
 2º - Não vai utilizar admob, twitter etc:\
 	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
-	e retire o seguinte trexo de código:
+	e retire o seguinte trecho de código:
 	
 	```xml
 
