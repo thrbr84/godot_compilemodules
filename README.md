@@ -160,7 +160,7 @@ e retire o seguinte trecho de código:
 Execute:
 - ```scons platform=android target=release```
 
-- **[IMPORTANT]** Depois de executar o SCONS, acesse o caminho [GODOT]/bin e veja se existe um arquivo ```dd``` se existir a compilação foi sucesso! Se não existir verifique no terminal se constam erros, e execute o SCONS novamente, você pode adicionar ```--clean``` no comando para limpar a compilação anterior e compilar tudo novamente, ficando assim: - ```scons --clean platform=android target=release```
+- **[IMPORTANT]** Depois de executar o SCONS, acesse o caminho [GODOT]/bin e veja se existe um arquivo ```dd``` se existir a compilação foi sucesso! Se não existir verifique no terminal se constam erros, e execute o SCONS novamente, você pode adicionar ```--clean``` no comando para limpar a compilação anterior e compilar tudo novamente, ficando assim: - ```scons --clean platform=android target=release``` e também para ```scons --clean platform=android target=release_debug``` após limpar pode começar tudo novamente com o ```scons platform=android target=release```
 
 
 - Depois de compilar, acesse: "```cd platform/android/java```", e execute:
