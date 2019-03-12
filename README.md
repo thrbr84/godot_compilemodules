@@ -81,8 +81,8 @@ android:label="@string/godot_project_name_string" />
 <!-- Auth -->
 ```
 
-	- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
-	e retire o seguinte trecho de código:
+- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
+e retire o seguinte trecho de código:
 
 ```xml
 <string name="facebook_app_id">1234567890987654</string>
