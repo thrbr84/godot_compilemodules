@@ -14,6 +14,7 @@ Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubu
 - Ubuntu 18.04 LTS
 - git version 2.17.1
 - Veja todos os requisitos necessários na documentação da Godot ( https://goo.gl/xNn68f )
+- Veja sessão de erros comuns no fim do arquivo.
 
 ### - Criar conta no Firebase
 Acesse e crie uma conta: ( http://firebase.google.com )
@@ -44,22 +45,64 @@ e edite o arquivo ```modules/GodotFireBase/config.py```, substituindo ```com.exa
 ainda no mesmo arquivo, deixe as configurações como essa:
 ```java
 _config = {
-    "Analytics"      : False,
-    "AdMob"          : False,
-    "Invites"        : False,
-    "RemoteConfig"   : False,
-    "Notification"   : False,
-    "Storage"        : False,
-    "Firestore"      : False,
+	"Analytics"      : True,
+	"AdMob"          : False,
+	"Invites"        : True,
+	"RemoteConfig"   : False,
+	"Notification"   : False,
+	"Storage"        : False,
+	"Firestore"      : True,
 
-    "Authentication" : True,
-    "AuthGoogle"     : False,
-    "AuthFacebook"   : False,
-    "AuthTwitter"    : False
+	"Authentication" : True,
+	"AuthGoogle"     : False,
+	"AuthFacebook"   : False,
+	"AuthTwitter"    : False
 }
 ```
 
+**[IMPORTANT]**
+- Se não for usar autenticação com Facebook, Admob etc, siga esses passos abaixo:
 
+1º - Não vai utilizar autenticação com Facebook:\
+	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/android/AndroidManifestChunk.xml```
+	e retire o seguinte trexo de código:
+
+	```xml
+
+		<!-- Auth -->
+
+		<!-- Set facebook Application ID -->
+		<meta-data android:name="com.facebook.sdk.ApplicationId"
+		android:value="@string/facebook_app_id"/>
+
+		<!-- Register Facebook Activity -->
+		<activity android:name="com.facebook.FacebookActivity"
+		android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+		android:label="@string/godot_project_name_string" />
+		<!-- Auth -->
+
+	```
+
+	- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
+	e retire o seguinte trexo de código:
+
+	```xml
+		<string name="facebook_app_id">1234567890987654</string>
+	```
+
+2º - Não vai utilizar admob, twitter etc:\
+	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
+	e retire o seguinte trexo de código:
+	
+	```xml
+
+	<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+	<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+	<string name="rewarded_video_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>
+	<string name="twitter_consumer_key">Mv71bxjlRumBlPI3HoRdle4I7</string>
+	<string name="twitter_consumer_secret">7yShM5dovdoBfLSnTfiIlZmZj6s6efBxQqapWcoZEOzDMHaKYx</string>
+
+	```
 
 ### - Preparar Ambiente Ubuntu (para compilação)
 - Instalar Android Studio ( https://goo.gl/xrJwYe )
@@ -89,13 +132,13 @@ _config = {
 	    - Colocar os caminhos abaixo, no fim do arquivo
 
     ```bash
-        export ANDROID_HOME="/home/$USER/Android/Sdk"
-        export ANDROID_NDK_ROOT="/home/$USER/Android/Sdk/ndk-bundle"
+	export ANDROID_HOME="/home/$USER/Android/Sdk"
+	export ANDROID_NDK_ROOT="/home/$USER/Android/Sdk/ndk-bundle"
 
-        PATH=${PATH}:${ANDROID_HOME}
-        PATH=${PATH}:${ANDROID_HOME}/tools
-        PATH=${PATH}:${ANDROID_HOME}/platform-tools
-        export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_202
+	PATH=${PATH}:${ANDROID_HOME}
+	PATH=${PATH}:${ANDROID_HOME}/tools
+	PATH=${PATH}:${ANDROID_HOME}/platform-tools
+	export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_202
     ```
 
 	- [Onde tem JAVA_HOME acima], precisa só conferir se o caminho está certo para seu java, e colocar o certo no seu pc
@@ -120,6 +163,9 @@ _config = {
 
 Execute:
 - ```scons platform=android target=release```
+
+- **[IMPORTANT]** Depois de executar o SCONS, acesse o caminho [GODOT]/bin e veja se existe um arquivo ```dd``` se existir a compilação foi sucesso! Se não existir verifique no terminal se constam erros, e execute o SCONS novamente, você pode adicionar ```--clean``` no comando para limpar a compilação anterior e compilar tudo novamente, ficando assim: - ```scons --clean platform=android target=release```
+
 
 - Depois de compilar, acesse: "```cd platform/android/java```", e execute:
 
@@ -240,4 +286,18 @@ nele você vai conseguir ver caso dê erro na hora de carregar o Firebase, ou au
 
 ```bash
 adb -d logcat godot:V FireBase:V DEBUG:V AndroidRuntime:V ValidateServiceOp:V *:S
+```
+
+------
+### ERROS COMUNS
+
+#### java.lang.RuntimeException: java.lang.RuntimeException: com.android.builder.dexing.DexArchiveMergerException: Unable to merge dex"
+Se ocorrer o erro acima, edite o arquivo ```[GODOT]/platform/android/java/build.gradle``` e coloque o seguinte código abaixo e execute novamente o ```./gradlew build```
+
+```java
+android {
+	defaultConfig {
+		multiDexEnabled true
+	}
+}
 ```
