@@ -67,38 +67,38 @@ _config = {
 	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/android/AndroidManifestChunk.xml```
 	e retire o seguinte trecho de código:
 
-	```
-	<!-- Auth -->
+		```
+		<!-- Auth -->
 
-	<!-- Set facebook Application ID -->
-	<meta-data android:name="com.facebook.sdk.ApplicationId"
-	android:value="@string/facebook_app_id"/>
+		<!-- Set facebook Application ID -->
+		<meta-data android:name="com.facebook.sdk.ApplicationId"
+		android:value="@string/facebook_app_id"/>
 
-	<!-- Register Facebook Activity -->
-	<activity android:name="com.facebook.FacebookActivity"
-	android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-	android:label="@string/godot_project_name_string" />
-	<!-- Auth -->
-	```
+		<!-- Register Facebook Activity -->
+		<activity android:name="com.facebook.FacebookActivity"
+		android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+		android:label="@string/godot_project_name_string" />
+		<!-- Auth -->
+		```
 
 	- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
 	e retire o seguinte trecho de código:
 
-	```xml
-	<string name="facebook_app_id">1234567890987654</string>
-	```
+		```xml
+		<string name="facebook_app_id">1234567890987654</string>
+		```
 
 2º - Não vai utilizar admob, twitter etc:\
 	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
 	e retire o seguinte trecho de código:
 	
-	```xml
-	<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-	<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
-	<string name="rewarded_video_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>
-	<string name="twitter_consumer_key">Mv71bxjlRumBlPI3HoRdle4I7</string>
-	<string name="twitter_consumer_secret">7yShM5dovdoBfLSnTfiIlZmZj6s6efBxQqapWcoZEOzDMHaKYx</string>
-	```
+		```xml
+		<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+		<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+		<string name="rewarded_video_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>
+		<string name="twitter_consumer_key">Mv71bxjlRumBlPI3HoRdle4I7</string>
+		<string name="twitter_consumer_secret">7yShM5dovdoBfLSnTfiIlZmZj6s6efBxQqapWcoZEOzDMHaKYx</string>
+		```
 
 ### - Preparar Ambiente Ubuntu (para compilação)
 - Instalar Android Studio ( https://goo.gl/xrJwYe )
