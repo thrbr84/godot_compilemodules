@@ -1,9 +1,9 @@
-# Godot 3.1
+# Godot 3.1 rc2
 # Compilar Módulos para Android (Ubuntu 18.04 LTS)
 Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubuntu 18.04 LTS
 
 ## Nesse tutorial foi utilizado
-- Godot 3.1beta11
+- Godot 3.1 rc2
 - java version "1.8.0_202"
 - Java(TM) SE Runtime Environment (build 1.8.0_202-b08)
 - Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
@@ -295,5 +295,9 @@ android {
 	defaultConfig {
 		multiDexEnabled true
 	}
+}
+
+dependencies {
+  compile 'com.android.support:multidex:1.0.1'
 }
 ```
