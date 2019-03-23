@@ -1,4 +1,4 @@
-# Godot 3.1 rc2
+# Godot 3.1
 # Compilar Módulos para Android (Ubuntu 18.04 LTS)
 Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubuntu 18.04 LTS
 
@@ -29,7 +29,7 @@ Acesse e crie uma conta: ( http://firebase.google.com )
 ### - Dependências
 Faça os clones utilizando os comandos do github
 
-- Baixar (Godot 3.1): git clone https://github.com/godotengine/godot
+- Baixar (Godot 3.1): git clone https://github.com/godotengine/godot/tree/3.1
 - Baixar: git clone https://github.com/FrogSquare/GodotSQL
 - Baixar: git clone https://github.com/Dhciolfi/GodotFireBase
 
