@@ -29,75 +29,17 @@ Acesse e crie uma conta: ( http://firebase.google.com )
 ### - Dependências
 Faça os clones utilizando os comandos do github
 
-- Baixar (Godot last): git clone https://github.com/godotengine/godot
+- Baixar (Godot 3.1): git clone https://github.com/godotengine/godot
 - Baixar: git clone https://github.com/FrogSquare/GodotSQL
-- Baixar: git clone https://github.com/FrogSquare/GodotFireBase
+- Baixar: git clone https://github.com/Dhciolfi/GodotFireBase
 
 
 ### - Configurações Antes da Compilação
 Copie seu arquivo ```google-services.json``` para ```[GODOT-ROOT]/platform/android/java/```
-e edite o arquivo ```modules/GodotFireBase/config.py```, substituindo ```com.example.game``` pelo package do seu projeto.
+e edite o arquivo ```modules/GodotFireBase/config.py```, substituindo ```br.com.ciolfi.godotuno``` pelo package do seu projeto.
 
 ```java
-    p_app_id = "com.example.game"
-```
-
-ainda no mesmo arquivo, deixe as configurações como essa:
-```java
-_config = {
-	"Analytics"      : True,
-	"AdMob"          : False,
-	"Invites"        : True,
-	"RemoteConfig"   : False,
-	"Notification"   : False,
-	"Storage"        : False,
-	"Firestore"      : True,
-
-	"Authentication" : True,
-	"AuthGoogle"     : False,
-	"AuthFacebook"   : False,
-	"AuthTwitter"    : False
-}
-```
-
-**[IMPORTANTE]**
-- Se não for usar autenticação com Facebook, Admob etc, siga esses passos abaixo:
-
-1º - Não vai utilizar autenticação com Facebook:\
-	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/android/AndroidManifestChunk.xml```
-	e retire o seguinte trecho de código:
-
-```xml
-<!-- Auth -->
-
-<!-- Set facebook Application ID -->
-<meta-data android:name="com.facebook.sdk.ApplicationId"
-android:value="@string/facebook_app_id"/>
-
-<!-- Register Facebook Activity -->
-<activity android:name="com.facebook.FacebookActivity"
-android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-android:label="@string/godot_project_name_string" />
-<!-- Auth -->
-```
-
-- Depois abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
-e retire o seguinte trecho de código:
-
-```xml
-<string name="facebook_app_id">1234567890987654</string>
-```
-
-2º - Não vai utilizar admob, twitter etc:\
-	- Abra o arquivo: ```[GODOT]/modules/GodotFireBase/res/values/ids.xml```
-	e retire o seguinte trecho de código:
-	
-```xml
-<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
-<string name="rewarded_video_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>
-<string name="twitter_consumer_key">Mv71bxjlRumBlPI3HoRdle4I7</string>
-<string name="twitter_consumer_secret">7yShM5dovdoBfLSnTfiIlZmZj6s6efBxQqapWcoZEOzDMHaKYx</string>
+    p_app_id = "br.com.ciolfi.godotun"
 ```
 
 ### - Preparar Ambiente Ubuntu (para compilação)
@@ -152,53 +94,28 @@ e retire o seguinte trecho de código:
 	- ```cd $JAVA_HOME``` (veja se entrou no caminho)
 
 
-### - compilar para RELEASE primeiro
+### - compilar para release_debug primeiro
 - Acesse o diretório principal da Godot (source) 
     * Nesse diretório vc vai trabalhar a maior parte do tempo abaixo.\
     * A primeira vez vai demorar bastante! Pode ir fazer uns 5 cafés!!! kkkk
 
 Execute:
-- ```scons platform=android target=release```
+- ```scons platform=android target=release_debug android_arch=armv7```
 
-- **[IMPORTANT]** Depois de executar o SCONS, acesse o caminho [GODOT]/bin e veja se existe um arquivo ```dd``` se existir a compilação foi sucesso! Se não existir verifique no terminal se constam erros, e execute o SCONS novamente, você pode adicionar ```--clean``` no comando para limpar a compilação anterior e compilar tudo novamente, ficando assim: - ```scons --clean platform=android target=release``` e também para ```scons --clean platform=android target=release_debug``` após limpar pode começar tudo novamente com o ```scons platform=android target=release```
+- **[IMPORTANT]** Depois de executar o SCONS, acesse o caminho [GODOT]/bin e veja se existe um arquivo ```dd``` se existir a compilação foi sucesso! Se não existir verifique no terminal se constam erros, e execute o SCONS novamente, você pode adicionar ```--clean``` no comando para limpar a compilação anterior e compilar tudo novamente, ficando assim: - ```scons --clean platform=android target=release_debug android_arch=armv7``` e também para ```scons --clean platform=android target=release android_arch=armv7``` após limpar pode começar tudo novamente com o ```scons platform=android target=release_debug android_arch=armv7```
 
 
-- Depois de compilar, acesse: "```cd platform/android/java```", e execute:
-
-- ```nano build.gradle```
-- localize onde tem a chave "Android" e acrescente a informação "dexOptions" abaixo:
-```java
-android {
-    dexOptions {
-        jumboMode = true
-    }
-    ... #mantenha os outros códigos que estiverem no arquivo build.gradle
-}
-```
-
-- Depois execute esse comando:
+- Depois de compilar, acesse: "```cd platform/android/java```":
+- Execute esse comando:
 - ```./gradlew build```
 
 
-### - Compilar para debug:
+### - Compilar para release:
 - Retorne ao diretório principal (```cd ../../../```) da godot (source) e execute agora em modo debug:
-- ```scons platform=android target=release_debug```
+- ```scons platform=android target=release android_arch=armv7```
 *** Talvez essa demore mais que a primeira vez!
 
 - Acesse: ```cd platform/android/java```
-- Abra o arquivo build.gradle novamente
-- ```nano build.gradle```
-
-- Localize onde tem a chave "Android" e acrescente a informação dexOptions abaixo:
-```java
-android {
-    dexOptions {
-        jumboMode = true
-    }
-    ... #mantenha os outros códigos que estiverem no arquivo build.gradle
-}
-```
-
 - Salve o arquivo, e execute o comando abaixo:
 - ```./gradlew build```
 
@@ -282,22 +199,4 @@ nele você vai conseguir ver caso dê erro na hora de carregar o Firebase, ou au
 
 ```bash
 adb -d logcat godot:V FireBase:V DEBUG:V AndroidRuntime:V ValidateServiceOp:V *:S
-```
-
-------
-### ERROS COMUNS
-
-#### > Task :transformDexArchiveWithExternalLibsDexMergerForDebug FAILED
-Se ocorrer o erro acima, edite o arquivo ```[GODOT]/platform/android/java/build.gradle``` e coloque o seguinte código abaixo e execute novamente o ```./gradlew build```
-
-```java
-android {
-	defaultConfig {
-		multiDexEnabled true
-	}
-}
-
-dependencies {
-  implementation 'com.android.support:multidex:1.0.1'
-}
 ```
