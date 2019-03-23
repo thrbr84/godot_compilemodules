@@ -3,7 +3,7 @@
 Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubuntu 18.04 LTS
 
 ## Nesse tutorial foi utilizado
-- Godot 3.1 rc2
+- Godot 3.1
 - java version "1.8.0_202"
 - Java(TM) SE Runtime Environment (build 1.8.0_202-b08)
 - Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
