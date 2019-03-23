@@ -14,7 +14,6 @@ Abaixo faço um passo-a-passo compilando um módulo do Firebase utilizando o Ubu
 - Ubuntu 18.04 LTS
 - git version 2.17.1
 - Veja todos os requisitos necessários na documentação da Godot ( https://goo.gl/xNn68f )
-- Veja sessão de erros comuns no fim do arquivo.
 
 ### - Criar conta no Firebase
 Acesse e crie uma conta: ( http://firebase.google.com )
