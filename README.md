@@ -147,6 +147,18 @@ func _ready():
 func _receive_message(tag, from, key, data):
 	if tag == "FireBase":
 		print("From: ", from, " Key: ", key, " Data: ", data)"
+		
+func _on_btn_login():
+	# conecte um botão aqui para fazer login:
+	firebase.email_sign_in('email@dominio.com.br', 'senha123')
+
+func _on_btn_logout():
+	# conecte um botão para fazer logout:
+	firebase.email_sign_out()
+
+func _on_btn_create():
+	# coencte um botão para criar um usuário novo:
+	firebase.email_create_account('email@dominio.com.br', 'senha123')
 
 ```
 
